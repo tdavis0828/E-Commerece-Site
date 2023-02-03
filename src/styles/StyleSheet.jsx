@@ -119,3 +119,75 @@ export const StyledProductCard = styled.div`
     }
   }
 `;
+
+export const StyledCart = styled.main`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+`;
+
+export const StyledCartHeader = styled.section`
+  height: 10vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+`;
+
+export const StyledCartItem = styled.div`
+  height: 20vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  & div {
+    display: flex;
+    flex-direction: column;
+    & img {
+      height: 50px;
+      width: 50px;
+    }
+    & p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+  }
+  & button {
+    background: none;
+    color: red;
+    border: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+`;
+
+export const StyledCartFooter = styled.div`
+  height: 10vh;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.15rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: #0081c9;
+    color: #fff;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;

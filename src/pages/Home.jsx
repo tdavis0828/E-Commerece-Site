@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { StyledHome } from '../styles/StyleSheet';
-import Navbar from '../components/Navbar';
-import PromoBanner from '../components/PromoBanner';
-import ProductCard from '../components/ProductCard';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/cartSlice';
+import React, { useEffect, useState } from "react";
+import { StyledHome } from "../styles/StyleSheet";
+import PromoBanner from "../components/PromoBanner";
+import ProductCard from "../components/ProductCard";
+import { nanoid } from "nanoid";
 
 const Home = () => {
   const [products, setProducts] = useState();
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products').then((res) =>
+    fetch("https://fakestoreapi.com/products").then((res) =>
       res.json().then((data) => setProducts(data))
     );
   }, []);
 
-  useEffect(() => {
-    dispatch(addToCart('testing'));
-  }, []);
-
   return (
     <StyledHome>
-      <Navbar />
       <PromoBanner />
       <div className="products-container">
         {products &&
@@ -33,6 +25,7 @@ const Home = () => {
                 image={product.image}
                 desc={product.description}
                 title={product.title}
+                key={nanoid()}
               />
             );
           })}

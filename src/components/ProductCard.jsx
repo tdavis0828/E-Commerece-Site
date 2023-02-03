@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { StyledProductCard } from "../styles/StyleSheet";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 const ProductCard = ({ price, image, desc, title }) => {
   let [qty, setQty] = useState(1);
-  let [cartQty, setCartqty] = useState(0);
+  const dispatch = useDispatch();
 
   function increaseQty() {
     setQty(qty++);
@@ -16,17 +18,21 @@ const ProductCard = ({ price, image, desc, title }) => {
     }
   }
 
-  function addToCart() {
-    setCartqty(qty);
+  function handleClick(el) {
+    const Product = {
+      title: title,
+      imageURL: image,
+      price: price,
+      description: desc,
+      qty: qty,
+    };
+    dispatch(addToCart(Product));
   }
-  console.log(cartQty);
+
   return (
-    <StyledProductCard>
+    <StyledProductCard id="card-container">
       <img src={image} alt={desc} />
       <p>{title}</p>
-      {/* <p>
-        {desc.substring(0, 20)} {desc.length >= 20 && "..."}
-      </p> */}
       <div className="btn-container">
         <div>
           <button onClick={decreaseQty}>-</button>
@@ -37,10 +43,8 @@ const ProductCard = ({ price, image, desc, title }) => {
           />
           <button onClick={increaseQty}>+</button>
         </div>
-        <div>
-          <button className="add-btn" onClick={addToCart}>
-            Add to cart
-          </button>
+        <div onClick={handleClick}>
+          <button className="add-btn">Add to cart</button>
         </div>
       </div>
       <p className="price">${price}</p>

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <StyledNavbar>
-      <Link to="/">Logo</Link>
-      <Link to="">Products</Link>
+      <p>Logo</p>
+      <Link to="/">Products</Link>
       <Link to="support">Support</Link>
       <input type="text" placeholder="Search products" />
       <Link to="about">About Us</Link>
