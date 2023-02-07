@@ -1,10 +1,7 @@
 import React from "react";
 import { StyledCartItem } from "../styles/StyleSheet";
 
-const CartItem = ({ desc, image, qty, price }) => {
-  function handleClick() {
-    console.log("item clicked");
-  }
+const CartItem = ({ desc, image, qty, price, onClick }) => {
   return (
     <StyledCartItem>
       <div>
@@ -12,7 +9,7 @@ const CartItem = ({ desc, image, qty, price }) => {
         <p>{desc}</p>
       </div>
       <p>{qty}</p>
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={onClick}>
         X
       </button>
       <p>${price}</p>

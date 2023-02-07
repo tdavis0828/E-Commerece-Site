@@ -24,6 +24,10 @@ export const StyledNavbar = styled.nav`
   position: sticky;
   top: 0;
   z-index: 10;
+  & img {
+    height: 75px;
+    width: 75px;
+  }
   & a {
     color: #fff;
     text-decoration: none;
@@ -71,7 +75,6 @@ export const StyledProductCard = styled.div`
   align-items: center;
   margin: 1rem;
   padding: 1rem;
-  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   position: relative;
   & img {
@@ -109,9 +112,10 @@ export const StyledProductCard = styled.div`
       cursor: pointer;
       &.add-btn {
         font-size: 1rem;
-        background: #ededed;
-        border: 1px solid #000;
-        border-radius: 5px;
+        color: #fff;
+        background: #2b3a55;
+        padding: 0.5rem;
+        border-radius: 2px;
         &:hover {
           text-decoration: underline;
         }
@@ -121,12 +125,15 @@ export const StyledProductCard = styled.div`
 `;
 
 export const StyledCart = styled.main`
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  & .empty-cart {
+    margin-top: 5rem;
+    font-size: 1.25rem;
+  }
 `;
 
 export const StyledCartHeader = styled.section`
@@ -145,6 +152,9 @@ export const StyledCartItem = styled.div`
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  & #item-id {
+    display: none;
+  }
   & div {
     display: flex;
     flex-direction: column;
@@ -173,7 +183,7 @@ export const StyledCartFooter = styled.div`
   height: 10vh;
   width: 100%;
   background: #fff;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   display: flex;
   justify-content: space-around;
@@ -190,4 +200,30 @@ export const StyledCartFooter = styled.div`
       text-decoration: underline;
     }
   }
+`;
+
+export const StyledAddedPopup = styled.div`
+  height: 10vh;
+  width: 100%;
+  background: #03c988;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+`;
+
+export const StyledRemovedPopup = styled.div`
+  height: 10vh;
+  width: 100%;
+  background: #f55050;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
 `;
